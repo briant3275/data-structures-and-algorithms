@@ -168,13 +168,13 @@ const fizzbuzz = (arr) => {
   let fizzBuzzArr = [];
 
   arr.forEach(num => {
-    if (num % 3 == 0){
+    if (num % 3 === 0){
       fizzBuzzArr.push("Fizz");
     }
-    if (num % 5 == 0){
+    if (num % 5 === 0){
       fizzBuzzArr.push("Buzz");
     }
-    if (num % 3 == 0 && num % 5 == 0){
+    if (num % 3 === 0 && num % 5 === 0){
       fizzBuzzArr.push("Fizz Buzz");
     }
     else {
