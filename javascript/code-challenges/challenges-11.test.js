@@ -26,7 +26,7 @@ function transformToLis(obj){
   }
   return array;
 
-};
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -40,6 +40,8 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 
 const count = (target, input) => {
   // Solution code here...
+  let fullArr = input.flat();
+  return fullArr.filter(num => num === target).length;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -54,6 +56,9 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 
 const totalSum = (input) => {
   // Solution code here...
+  let fullArr = input.flat();
+  let sum = fullArr.reduce((a, b) => a + b);
+  return sum;
 };
 
 /* ------------------------------------------------------------------------------------------------
