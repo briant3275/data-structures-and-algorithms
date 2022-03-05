@@ -8,25 +8,11 @@ Write a function named longestString that takes in an array of strings and retur
 
 const longestString = (arr) => {
   // Solution code here...
-  if (arr.length === 0) {
-    return -1;
-    }
-  //   let longStrIdx === 0;
-  //   let longLength = arr[0].length;
-  //   for (let i = 1; i < arr.length; i++) {
-  //     if (arr[i].length > longLength) {
-  //       longLength = arr[i].length;
-  //       longStrIdx = i;
-  //     }
-  // }
-  let longest = arr.reduce(
-    function (a, b) {
-      return a.length > b.length ? a : b;
-    }
-  );
-  return longest;
-
-  //   return longStrIdx;
+  let currentLongest = { string: '', longestIdx: -1};
+  arr.forEach((str, idx) => {
+    str.length > currentLongest.string.length ? currentLongest = {string: str, longestIdx: idx}: '';
+  });
+  return currentLongest.longestIdx;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -39,7 +25,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 
 const firstLetters = (arr) => {
   // Solution code here...
-  return arr.map(str => str.substr(0, 1));
+  return arr.map(str => str.substring(0, 1));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -52,7 +38,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 
 const findHappiness = (arr) => {
   // Solution code here...
-  return arr.map(str => str.includes(':)'));
+  return arr.filter(str => str.includes(':)'));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,6 +51,7 @@ For example, (123) 456-7890 returns 1234567890
 
 const standardizePhoneNumbers = (arr) => {
   // Solution code here...
+  return arr.map(num => `${num.substring(1, 4)}${num.substring(6, 9)}${num.substring(10)}`);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -77,6 +64,7 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
+  return str.split('').filter((letter, i) => i % 2 !== 0).join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -87,6 +75,7 @@ Write a function named allHappy that takes in an array of strings and returns a 
 
 const allHappy = (arr) => {
   // Solution code here...
+  return arr.every(str => str.includes(':)'));
 };
 
 /* ------------------------------------------------------------------------------------------------
